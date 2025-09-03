@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Banco Digital</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="../Img/banco.png">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <header>
+        <button id="btnGenerarCartola">Cartola</button>
+        <h1>Banco Ahorro Virtual</h1>
+        <button id="btnGuardar">Guardar</button>
+    </header>
+
+    <section id="infoCliente">
+        <div>
+            <p><strong>Nombre:</strong> <span id="nombreCliente"></span></p>
+            <p><strong>Capital:</strong> <span id="capitalCliente"></span></p>
+            <p><strong>Fecha:</strong> <span id="fechaChile"></span></p>
+        </div>
+    </section>
+
+    <section id="operaciones">
+        <div class="operacion">
+            <h2>Ingresar Dinero</h2>
+            <form id="formIngreso">
+                <label>Monto: <input type="number" id="montoIngreso" required onkeydown="valorPositivo(event)"></label><br>
+                <label>Detalle: <input type="text" id="detalleIngreso" required onkeydown="bloquearComa(event)"></label><br>
+                <button type="submit">Ingresar</button>
+            </form>
+        </div>
+        <div class="operacion">
+            <h3>Retirar Dinero</h3>
+            <form id="formRetiro">
+                <label>Monto: <input type="number" id="montoRetiro" required onkeydown="valorPositivo(event)"></label><br>
+                <label>Detalle: <input type="text" id="detalleRetiro" required onkeydown="bloquearComa(event)"></label><br>
+                <button type="submit">Retirar</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="movimientos">
+        <div id="movimientosHeader1">
+            <h4>Movimientos</h4>
+        </div>
+        <div id="movimientosHeader" class="movimientos-row header">
+            <span>#</span>
+            <span>Tipo</span>
+            <span>Monto</span>
+            <span>Detalle</span>
+            <span>Fecha</span>
+        </div>
+        <ul id="listaMovimientos"></ul>
+    </section>
+
+    <div id="cartolaModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span id="closeCartola" class="close">&times;</span>
+            <h2>Complete lo Siguiente:</h2>
+            <form id="formCartola">
+                <label>Fecha Inicial:
+                    <input type="date" id="fechaInicial" required>
+                </label><br><br>
+                <label>Fecha Final:
+                    <input type="date" id="fechaFinal" required>
+                </label><br><br>
+                <label>Tipo de Movimientos:</label><br>
+                <input type="checkbox" id="chkIngreso" checked> Ingresos
+                <input type="checkbox" id="chkEgreso" checked> Egresos
+                <br><br>
+                <button type="submit">Generar PDF</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

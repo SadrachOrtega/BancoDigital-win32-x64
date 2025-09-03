@@ -1,0 +1,5 @@
+Sadrach Roy Ortega Torres
+199000
+1,Egreso,29000,Detalle 1,04/08/2025
+2,Egreso,47000,Detalle 2,06/08/2025
+3,Ingreso,110000,Detalle 2,09/08/2025
